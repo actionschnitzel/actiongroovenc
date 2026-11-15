@@ -21,6 +21,7 @@ from __future__ import annotations
 from typing import Optional
 
 import logging
+from gettext import gettext as _
 
 from gi.repository import GObject, Gtk, Gio
 from .albumlistitem import AlbumListItem
@@ -80,7 +81,7 @@ class AlbumHeader(Gtk.Box):
         self._album_label.set_markup(f"<span size=\"xx-large\">{escape(album.album)}</span>")
         self._artist_label.set_markup(f"<span size=\"x-large\">{escape(album.artist)}</span>")
         if album.year:
-            self._album_year_label.set_text(f"Released {album.year}")
+            self._album_year_label.set_text(_("Released %(year)s") % {"year": album.year})
         else:
             self._album_year_label.set_text("")
 

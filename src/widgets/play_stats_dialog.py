@@ -1,7 +1,7 @@
 import gi
 gi.require_version('Adw', '1')
 
-from gettext import gettext as _
+from gettext import gettext as _, ngettext
 from gi.repository import Adw, Gdk, Gio, GLib, Gtk
 
 from operator import itemgetter
@@ -95,7 +95,7 @@ class PlayStatsDialog(Adw.Dialog):
             stats_today.write(json.dumps(songs_data))
 
         self.previous_model = Gtk.StringList()
-        self.previous_model.append("Lifetime")
+        self.previous_model.append(_("Lifetime"))
         self.previous_picker.set_model(self.previous_model)
 
         pattern = "stats_snapshot_(\\d{4}-\\d\\d-\\d\\d).json"
@@ -160,7 +160,7 @@ class PlayStatsDialog(Adw.Dialog):
 
         top_five_song_counts_sorted = song_counts_sorted[:5]
 
-        self.share_text += "Top 5 Songs:\n"
+        self.share_text += _("Top 5 Songs:") + "\n"
         topsongs_list = songrow_list
         position = 1
         for song in top_five_song_counts_sorted:
@@ -172,7 +172,11 @@ class PlayStatsDialog(Adw.Dialog):
             album_id = top_song_details["album_id"]
             # FIXME album cover, make it not look shit and next button
             topsongs_list[position].set_details(title, f"{artist} - {album}", position, song[1], album_id)
-            self.share_text += f"{position}:  {title} - {artist} ({song[1]} plays)\n"
+            self.share_text += ngettext(
+                "%(position)d:  %(title)s - %(artist)s (%(count)d play)\n",
+                "%(position)d:  %(title)s - %(artist)s (%(count)d plays)\n",
+                song[1],
+            ) % {"position": position, "title": title, "artist": artist, "count": song[1]}
             position += 1
 
         artist_counts_list = []
@@ -182,7 +186,7 @@ class PlayStatsDialog(Adw.Dialog):
 
         top_five_artist_counts_sorted = artist_counts_sorted[:5]
 
-        self.share_text += f"\nTop 5 Artists:\n"
+        self.share_text += "\n" + _("Top 5 Artists:") + "\n"
         topartists_list = artistrow_list
         position = 1
         for artist in top_five_artist_counts_sorted:
@@ -191,7 +195,11 @@ class PlayStatsDialog(Adw.Dialog):
 
             artist_name = artist_details[artist_id]
             topartists_list[position].set_details(artist_name, None, position, played, None)
-            self.share_text += f"{position}:  {artist_name} ({played} plays)\n"
+            self.share_text += ngettext(
+                "%(position)d:  %(name)s (%(count)d play)\n",
+                "%(position)d:  %(name)s (%(count)d plays)\n",
+                played,
+            ) % {"position": position, "name": artist_name, "count": played}
             position += 1
 
 
@@ -201,7 +209,7 @@ class PlayStatsDialog(Adw.Dialog):
         album_counts_sorted = sorted(album_counts_list, key=itemgetter(1), reverse=True)
         top_five_album_counts_sorted = album_counts_sorted[:5]
 
-        self.share_text += f"\nTop 5 Albums:\n"
+        self.share_text += "\n" + _("Top 5 Albums:") + "\n"
         topalbums_list = albumrow_list
         position = 1
         for album in top_five_album_counts_sorted:
@@ -210,7 +218,11 @@ class PlayStatsDialog(Adw.Dialog):
 
             album_name = album_details[album_id]
             topalbums_list[position].set_details(album_name, None, position, album[1], album_id)
-            self.share_text += f"{position}: {album_name} ({album[1]} plays)\n"
+            self.share_text += ngettext(
+                "%(position)d: %(name)s (%(count)d play)\n",
+                "%(position)d: %(name)s (%(count)d plays)\n",
+                album[1],
+            ) % {"position": position, "name": album_name, "count": album[1]}
             position += 1
 
         self.share_text += "\n#NextcloudWrapped #ActionGrooveNC #Nextcloud #Wrapped"
@@ -243,18 +255,18 @@ class PlayStatsDialog(Adw.Dialog):
         stats_folder = os.path.join(GLib.get_user_cache_dir(), "stats")
         previous_file = os.path.join(stats_folder, f"stats_snapshot_{selected_date.get_string()}.json")
 
-        if selected_date.get_string() == "Lifetime":
+        if selected == 0:
             self.previous_data = None
             self.__process_summary_method(
                 [None, self.topsong1, self.topsong2, self.topsong3, self.topsong4, self.topsong5],
                 [None, self.topalbum1, self.topalbum2, self.topalbum3, self.topalbum4, self.topalbum5],
                 [None, self.topartist1, self.topartist2, self.topartist3, self.topartist4, self.topartist5],
                 self.top5songslifetime,
-                "My total Nextcloud music stats:"
+                _("My total Nextcloud music stats:")
             )
-            self.topalbumsheaderlabel.set_label(self.topalbumsheaderlabel.get_label()+" (Lifetime)")
-            self.topsongsheaderlabel.set_label(self.topsongsheaderlabel.get_label()+" (Lifetime)")
-            self.topartistsheaderlabel.set_label(self.topartistsheaderlabel.get_label()+" (Lifetime)")
+            self.topalbumsheaderlabel.set_label(_("%(title)s (Lifetime)") % {"title": _("Top 5 Albums")})
+            self.topsongsheaderlabel.set_label(_("%(title)s (Lifetime)") % {"title": _("Top 5 Songs")})
+            self.topartistsheaderlabel.set_label(_("%(title)s (Lifetime)") % {"title": _("Top 5 Artists")})
             return
         with open(previous_file, 'r') as prev_stats_file:
             self.previous_data = json.load(prev_stats_file)
@@ -269,11 +281,13 @@ class PlayStatsDialog(Adw.Dialog):
             [None, self.topalbum1, self.topalbum2, self.topalbum3, self.topalbum4, self.topalbum5],
             [None, self.topartist1, self.topartist2, self.topartist3, self.topartist4, self.topartist5],
             self.top5songslifetime,
-            f"My Nextcloud music stats from {selected_date.get_string()} to {datetime.datetime.now().date().isoformat()}:"
+            _("My Nextcloud music stats from %(start)s to %(end)s:") % {
+                "start": selected_date.get_string(), "end": datetime.datetime.now().date().isoformat()
+            }
         )
-        self.topalbumsheaderlabel.set_label(self.topalbumsheaderlabel.get_label()+f" (since {selected_date.get_string()})")
-        self.topsongsheaderlabel.set_label(self.topsongsheaderlabel.get_label()+f" (since {selected_date.get_string()})")
-        self.topartistsheaderlabel.set_label(self.topartistsheaderlabel.get_label()+f" (since {selected_date.get_string()})")
+        self.topalbumsheaderlabel.set_label(_("%(title)s (since %(date)s)") % {"title": _("Top 5 Albums"), "date": selected_date.get_string()})
+        self.topsongsheaderlabel.set_label(_("%(title)s (since %(date)s)") % {"title": _("Top 5 Songs"), "date": selected_date.get_string()})
+        self.topartistsheaderlabel.set_label(_("%(title)s (since %(date)s)") % {"title": _("Top 5 Artists"), "date": selected_date.get_string()})
         self._stack.set_visible_child(self.top5songslifetime)
 
     @Gtk.Template.Callback()

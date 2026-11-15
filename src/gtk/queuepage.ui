@@ -13,7 +13,7 @@
           <child>
             <object class="GtkButton" id="_save_queue_as_playlist_button">
               <property name="icon-name">document-save</property>
-              <property name="tooltip-text">Save current queue as playlist</property>
+              <property name="tooltip-text" translatable="yes">Save current queue as playlist</property>
               <style>
                 <class name="osd"/>
                 <class name="circular"/>
@@ -23,7 +23,7 @@
           <child>
             <object class="GtkButton" id="_clear_queue_button">
               <property name="icon-name">edit-clear-all-symbolic</property>
-              <property name="tooltip-text">Clear queue</property>
+              <property name="tooltip-text" translatable="yes">Clear queue</property>
               <style>
                 <class name="osd"/>
                 <class name="circular"/>
@@ -33,7 +33,7 @@
           <child>
             <object class="GtkEntry" id="_queue_name_entry">
               <property name="visible">False</property>
-              <property name="placeholder-text">Name of Playlist</property>
+              <property name="placeholder-text" translatable="yes">Name of Playlist</property>
               <style>
                 <class name="osd"/>
               </style>
@@ -43,7 +43,7 @@
             <object class="GtkButton" id="_hide_playlist_save">
               <property name="icon-name">window-close-symbolic</property>
               <property name="visible">False</property>
-              <property name="tooltip-text">Cancel save as playlist</property>
+              <property name="tooltip-text" translatable="yes">Cancel save as playlist</property>
               <style>
                 <class name="osd"/>
                 <class name="circular"/>
@@ -63,7 +63,7 @@
           </style>
           <child>
             <object class="GtkLabel">
-              <property name="label">Drop songs here</property>
+              <property name="label" translatable="yes">Drop songs here</property>
               <style>
                 <class name="dim-label"/>
               </style>

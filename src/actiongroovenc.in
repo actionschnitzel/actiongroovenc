@@ -33,6 +33,8 @@ sys.path.insert(1, pkgdatadir)
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 locale.bindtextdomain('actiongroovenc', localedir)
 locale.textdomain('actiongroovenc')
+gettext.bindtextdomain('actiongroovenc', localedir)
+gettext.textdomain('actiongroovenc')
 gettext.install('actiongroovenc', localedir)
 
 if __name__ == '__main__':

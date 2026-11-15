@@ -67,37 +67,37 @@
           <child>
             <object class="GtkButton" id="play_button">
               <property name="halign">start</property>
-              <property name="label">Play</property>
+              <property name="label" translatable="yes">Play</property>
               <property name="icon-name">media-playback-start-symbolic</property>
               <property name="margin-start">20</property>
               <property name="margin-end">10</property>
               <property name="margin-top">20</property>
               <property name="margin-bottom">20</property>
-              <property name="tooltip-text">Play</property>
+              <property name="tooltip-text" translatable="yes">Play</property>
             </object>
           </child>
           <child>
             <object class="GtkButton" id="append_button">
               <property name="halign">start</property>
-              <property name="label">Append to queue</property>
+              <property name="label" translatable="yes">Append to queue</property>
               <property name="icon-name">go-bottom-symbolic</property>
               <property name="margin-start">10</property>
               <property name="margin-end">10</property>
               <property name="margin-top">20</property>
               <property name="margin-bottom">20</property>
-              <property name="tooltip-text">Add to queue</property>
+              <property name="tooltip-text" translatable="yes">Add to queue</property>
             </object>
           </child>
           <child>
             <object class="GtkButton" id="append_next_button">
               <property name="halign">start</property>
-              <property name="label">Append to queue (play next)</property>
+              <property name="label" translatable="yes">Append to queue (play next)</property>
               <property name="icon-name">go-top-symbolic</property>
               <property name="margin-start">10</property>
               <property name="margin-end">20</property>
               <property name="margin-top">20</property>
               <property name="margin-bottom">20</property>
-              <property name="tooltip-text">Add to queue (play next)</property>
+              <property name="tooltip-text" translatable="yes">Add to queue (play next)</property>
             </object>
           </child>
           <child>

@@ -1,3 +1,23 @@
+actiongroovenc (0.6.2) unstable; urgency=medium
+
+  * DE (2026-11-15): Add an upload dialog to the main menu for individual
+    files and folders, preserving folder structure without overwriting files.
+  * DE (2026-11-15): Determine the destination from Nextcloud Music settings
+    and support session redirects when retrieving them.
+  * DE (2026-11-15): Scan new and modified music files after successful uploads
+    and report scan failures separately.
+  * DE (2026-11-15): Document the upload and refresh workflow and add German
+    translations for the upload dialog.
+  * DE (2026-11-15): Load translations correctly in development and installed
+    application launches.
+  * DE (2026-11-15): Correct and complete German translations across the interface,
+    including settings, library actions and music statistics.
+  * DE (2026-11-15): Change the refresh shortcut to Ctrl+R to avoid the
+    XFCE window manager's Ctrl+F5 workspace shortcut.
+  * DE (2026-11-15): Add Ctrl+U as a shortcut for the upload dialog.
+
+ -- KTT73 <ktt73@guideos.de>  Sun, 15 Nov 2026 14:02:57 +0100
+
 actiongroovenc (0.6.1) unstable; urgency=medium
 
   * DE (2026-11-14): Move refresh to the first main menu entry, remove its

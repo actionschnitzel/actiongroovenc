@@ -100,7 +100,7 @@
             <child>
               <object class="AdwViewStackPage" id="welcomepage">
                 <property name="name">welcome</property>
-                <property name="title">Welcome</property>
+                <property name="title" translatable="yes">Welcome</property>
                 <property name="icon-name">user-home-symbolic</property>
                 <property name="child">
                   <object class="AdwToastOverlay" id="status_toast">
@@ -109,8 +109,8 @@
                         <style>
                           <class name="login-bg"/>
                         </style>
-                        <property name="title">Welcome</property>
-                        <property name="description">Retrieving collection...</property>
+                        <property name="title" translatable="yes">Welcome</property>
+                        <property name="description" translatable="yes">Retrieving collection...</property>
                         <property name="child">
                           <object class="GtkBox">
                             <property name="halign">center</property>
@@ -175,7 +175,7 @@
             <child>
               <object class="AdwViewStackPage" id="album_stack">
                 <property name="name">albums</property>
-                <property name="title">Albums</property>
+                <property name="title" translatable="yes">Albums</property>
                 <property name="icon-name">media-optical-cd-audio-symbolic</property>
                 <property name="visible">False</property>
                 <property name="child">
@@ -231,7 +231,7 @@
             <child>
               <object class="AdwViewStackPage" id="artist_stack">
                 <property name="name">artist</property>
-                <property name="title">Artist</property>
+                <property name="title" translatable="yes">Artist</property>
                 <property name="visible">False</property>
                 <property name="icon-name">system-users</property>
                 <property name="child">
@@ -302,7 +302,7 @@
             <child>
               <object class="AdwViewStackPage" id="playlist_stack">
                 <property name="name">playlists</property>
-                <property name="title">Playlists</property>
+                <property name="title" translatable="yes">Playlists</property>
                 <property name="icon-name">view-list-ordered-symbolic</property>
                 <property name="visible">False</property>
                 <property name="child">
@@ -378,6 +378,10 @@
       <item>
         <attribute name="label" translatable="yes">Refresh</attribute>
         <attribute name="action">win.refresh</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Upload</attribute>
+        <attribute name="action">app.upload</attribute>
       </item>
       <item>
         <attribute name="label" translatable="yes">_Preferences</attribute>

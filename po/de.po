@@ -2,12 +2,11 @@
 # Copyright (C) 2026 Dean Birch
 # This file is distributed under the same license as the ActionGrooveNC package.
 #
-#: src/mpris.py:163 src/mpris.py:165
 msgid ""
 msgstr ""
 "Project-Id-Version: ActionGrooveNC\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-11 09:12+0100\n"
+"POT-Creation-Date: 2026-11-15 14:34+0100\n"
 "PO-Revision-Date: 2026-11-10 00:02+0100\n"
 "Last-Translator: Timo\n"
 "Language-Team: German\n"
@@ -102,6 +101,27 @@ msgstr "Albumdetails in ActionGrooveNC"
 msgid "Viewing a playlist in ActionGrooveNC"
 msgstr "Anzeige einer Playlist in ActionGrooveNC"
 
+#: src/gtk/albumheader.ui:70 src/gtk/albumheader.ui:76
+#: src/gtk/playlistheader.ui:47 src/gtk/playlistheader.ui:53
+msgid "Play"
+msgstr "Abspielen"
+
+#: src/gtk/albumheader.ui:82 src/gtk/playlistheader.ui:59
+msgid "Append to queue"
+msgstr "Zur Warteschlange hinzufügen"
+
+#: src/gtk/albumheader.ui:88 src/gtk/playlistheader.ui:65
+msgid "Add to queue"
+msgstr "Zur Warteschlange hinzufügen"
+
+#: src/gtk/albumheader.ui:94 src/gtk/playlistheader.ui:71
+msgid "Append to queue (play next)"
+msgstr "Zur Warteschlange hinzufügen (als Nächstes)"
+
+#: src/gtk/albumheader.ui:100 src/gtk/playlistheader.ui:77
+msgid "Add to queue (play next)"
+msgstr "Zur Warteschlange hinzufügen (als Nächstes)"
+
 #: src/gtk/albumheader.ui:113 src/gtk/playlistheader.ui:90
 msgid "Play in order"
 msgstr "In Reihenfolge abspielen"
@@ -111,31 +131,57 @@ msgid "Play shuffled"
 msgstr "Zufällig abspielen"
 
 #: src/gtk/albumheader.ui:136 src/gtk/albumheader.ui:152
-#: src/gtk/playlistheader.ui:128 src/gtk/window.ui:421
+#: src/gtk/playlistheader.ui:128 src/gtk/window.ui:409
 msgid "_Play"
 msgstr "_Abspielen"
 
 #: src/gtk/albumheader.ui:140 src/gtk/albumheader.ui:156
-#: src/gtk/playlistheader.ui:132 src/gtk/window.ui:429
+#: src/gtk/playlistheader.ui:132 src/gtk/window.ui:417
 msgid "_Add to queue"
 msgstr "Zur _Warteschlange hinzufügen"
 
 #: src/gtk/albumheader.ui:144 src/gtk/albumheader.ui:160
-#: src/gtk/playlistheader.ui:136 src/gtk/window.ui:433
+#: src/gtk/playlistheader.ui:136 src/gtk/window.ui:421
 msgid "_Add to queue (play next)"
 msgstr "Zur _Warteschlange hinzufügen (als Nächstes)"
+
+#: src/gtk/controls.ui:93
+msgid "prev"
+msgstr "Zurück"
+
+#: src/gtk/controls.ui:108
+msgid "play/pause"
+msgstr "Wiedergabe/Pause"
+
+#: src/gtk/controls.ui:121
+msgid "next"
+msgstr "Weiter"
+
+#: src/gtk/controls.ui:154
+msgid "vol"
+msgstr "Lautstärke"
 
 #: src/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Allgemein"
 
-#: src/gtk/help-overlay.ui:14
+#: src/gtk/help-overlay.ui:15
+msgctxt "shortcut window"
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+#: src/gtk/help-overlay.ui:21
+msgctxt "shortcut window"
+msgid "Upload"
+msgstr "Hochladen"
+
+#: src/gtk/help-overlay.ui:27
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
 msgstr "Tastenkürzel anzeigen"
 
-#: src/gtk/help-overlay.ui:20
+#: src/gtk/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Beenden"
@@ -146,7 +192,7 @@ msgid "ActionGrooveNC Login"
 msgstr "ActionGrooveNC-Anmeldung"
 
 #. Translators: Description
-#: src/gtk/nextcloud_login_dialog.ui:31
+#: src/gtk/nextcloud_login_dialog.ui:34
 msgid ""
 "Press Continue to provide your Nextcloud server address and login via a web "
 "browser"
@@ -155,23 +201,23 @@ msgstr ""
 "über den Webbrowser anzumelden"
 
 #. Translators: Button
-#: src/gtk/nextcloud_login_dialog.ui:36 src/gtk/nextcloud_login_dialog.ui:93
+#: src/gtk/nextcloud_login_dialog.ui:39 src/gtk/nextcloud_login_dialog.ui:99
 #: src/gtk/play_stats_dialog.ui:39
 msgid "Continue"
 msgstr "Weiter"
 
 #. Translators: Button tooltip
-#: src/gtk/nextcloud_login_dialog.ui:38 src/gtk/window.ui:121
+#: src/gtk/nextcloud_login_dialog.ui:41 src/gtk/window.ui:124
 msgid "Continue to URL Entry"
 msgstr "Weiter zur URL-Eingabe"
 
 #. Translators: Title
-#: src/gtk/nextcloud_login_dialog.ui:56
+#: src/gtk/nextcloud_login_dialog.ui:62
 msgid "Secret Service Inaccessible"
 msgstr "Secret Service nicht erreichbar"
 
 #. Translators: Description
-#: src/gtk/nextcloud_login_dialog.ui:58
+#: src/gtk/nextcloud_login_dialog.ui:64
 msgid ""
 "The Secret Service could not be accessed for storing authentication details. "
 "Ensure you have a provider such as gnome-keyring. A default keyring needs to "
@@ -185,27 +231,27 @@ msgstr ""
 "neu, um es erneut zu versuchen."
 
 #. Translators: Description
-#: src/gtk/nextcloud_login_dialog.ui:80
+#: src/gtk/nextcloud_login_dialog.ui:86
 msgid "Server URL"
 msgstr "Server-URL"
 
 #. Translators: Button tooltip
-#: src/gtk/nextcloud_login_dialog.ui:95
+#: src/gtk/nextcloud_login_dialog.ui:101
 msgid "Start Login"
 msgstr "Anmeldung starten"
 
 #. Translators: Title
-#: src/gtk/nextcloud_login_dialog.ui:130
+#: src/gtk/nextcloud_login_dialog.ui:142
 msgid "Connection Established"
 msgstr "Verbindung hergestellt"
 
 #. Translators: Button
-#: src/gtk/nextcloud_login_dialog.ui:145 src/gtk/play_stats_dialog.ui:88
+#: src/gtk/nextcloud_login_dialog.ui:157 src/gtk/play_stats_dialog.ui:88
 msgid "Done"
 msgstr "Fertig"
 
 #. Translators: Button tooltip
-#: src/gtk/nextcloud_login_dialog.ui:147
+#: src/gtk/nextcloud_login_dialog.ui:159
 msgid "Complete Sync Setup"
 msgstr "Synchronisierung abschließen"
 
@@ -239,13 +285,31 @@ msgstr "Schnappschuss machen und zur Zeitraumauswahl weitergehen"
 msgid "🗓️"
 msgstr "🗓️"
 
+#: src/gtk/play_stats_dialog.ui:73
+msgid ""
+"\n"
+"Pick a previous snapshot to compare to.\n"
+"If there is no suitable snapshot (created before today), you can still view "
+"lifetime statistics."
+msgstr ""
+"\n"
+"Wähle einen früheren Schnappschuss zum Vergleichen aus.\n"
+"Falls kein geeigneter Schnappschuss vor heute erstellt wurde, kannst du "
+"trotzdem die Gesamtstatistik ansehen."
+
 #. Translators: Button tooltip
 #: src/gtk/play_stats_dialog.ui:90
 msgid "See stats"
 msgstr "Statistiken anzeigen"
 
+#: src/gtk/play_stats_dialog.ui:113 src/widgets/play_stats_dialog.py:268
+#: src/widgets/play_stats_dialog.py:289
+msgid "Top 5 Songs"
+msgstr "Top 5 Titel"
+
 #. Translators: Button
 #: src/gtk/play_stats_dialog.ui:140 src/gtk/play_stats_dialog.ui:188
+#: src/gtk/play_stats_dialog.ui:236
 msgid "Next"
 msgstr "Weiter"
 
@@ -254,10 +318,20 @@ msgstr "Weiter"
 msgid "Continue to albums"
 msgstr "Weiter zu den Alben"
 
+#: src/gtk/play_stats_dialog.ui:161 src/widgets/play_stats_dialog.py:267
+#: src/widgets/play_stats_dialog.py:288
+msgid "Top 5 Albums"
+msgstr "Top 5 Alben"
+
 #. Translators: Button tooltip
 #: src/gtk/play_stats_dialog.ui:190
 msgid "Continue to artists"
 msgstr "Weiter zu den Künstlern"
+
+#: src/gtk/play_stats_dialog.ui:209 src/widgets/play_stats_dialog.py:269
+#: src/widgets/play_stats_dialog.py:290
+msgid "Top 5 Artists"
+msgstr "Top 5 Künstler"
 
 #. Translators: Description
 #: src/gtk/play_stats_dialog.ui:252
@@ -270,111 +344,363 @@ msgstr ""
 "Bis zum nächsten Mal!\n"
 "                "
 
+#: src/gtk/play_stats_dialog.ui:264
+msgid "Summary"
+msgstr "Zusammenfassung"
+
 #. Translators: Button
-#: src/gtk/play_stats_dialog.ui:293
+#: src/gtk/play_stats_dialog.ui:293 src/main.py:116
 msgid "Close"
 msgstr "Schließen"
 
-#: src/gtk/window.ui:35 src/gtk/window.ui:182 src/gtk/window.ui:258
+#: src/gtk/playlistheader.ui:106 src/gtk/playlistheader.ui:112
+msgid "Delete playlist"
+msgstr "Playlist löschen"
+
+#: src/gtk/queuepage.ui:16
+msgid "Save current queue as playlist"
+msgstr "Aktuelle Warteschlange als Playlist speichern"
+
+#: src/gtk/queuepage.ui:26
+msgid "Clear queue"
+msgstr "Warteschlange leeren"
+
+#: src/gtk/queuepage.ui:36
+msgid "Name of Playlist"
+msgstr "Name der Playlist"
+
+#: src/gtk/queuepage.ui:46
+msgid "Cancel save as playlist"
+msgstr "Speichern als Playlist abbrechen"
+
+#: src/gtk/queuepage.ui:66
+msgid "Drop songs here"
+msgstr "Titel hier ablegen"
+
+#: src/gtk/settings.ui:4
+msgid "Preferences"
+msgstr "Einstellungen"
+
+#: src/gtk/settings.ui:9
+msgid "Server Settings"
+msgstr "Servereinstellungen"
+
+#: src/gtk/settings.ui:12
+msgid "Log out"
+msgstr "Abmelden"
+
+#: src/gtk/settings.ui:20
+msgid "Log into server"
+msgstr "Am Server anmelden"
+
+#: src/gtk/settings.ui:27
+msgid "Cache Settings"
+msgstr "Cache-Einstellungen"
+
+#: src/gtk/settings.ui:30
+msgid "Use Cache"
+msgstr "Cache verwenden"
+
+#: src/gtk/settings.ui:35
+msgid "Clear Cache"
+msgstr "Cache leeren"
+
+#: src/gtk/window.ui:35 src/gtk/window.ui:178 src/gtk/window.ui:185
+#: src/gtk/window.ui:261
 msgid "Albums"
 msgstr "Alben"
 
-#: src/gtk/window.ui:40
-#, fuzzy
+#: src/gtk/window.ui:40 src/gtk/window.ui:234
 msgid "Artist"
 msgstr "Künstler"
 
-#: src/gtk/window.ui:45 src/gtk/window.ui:326
+#: src/gtk/window.ui:45 src/gtk/window.ui:305 src/gtk/window.ui:312
 msgid "Playlists"
 msgstr "Playlists"
 
 #: src/gtk/window.ui:54
 msgid "Back"
-msgstr ""
+msgstr "Zurück"
 
 #: src/gtk/window.ui:60
-#, fuzzy
 msgid "Search"
-msgstr "Alben durchsuchen"
+msgstr "Suchen"
 
-# DE (2026-11-12): German labels for the new library refresh control.
-# DE (2026-11-14): Reuse the label for the main menu and translate the shortcut.
-#: src/gtk/window.ui
-msgid "Refresh"
-msgstr "Aktualisieren"
-
-#: src/gtk/help-overlay.ui
-msgctxt "shortcut window"
-msgid "Refresh"
-msgstr "Aktualisieren"
-
-#: src/gtk/window.ui:77
+#: src/gtk/window.ui:68
 msgid "Queue"
 msgstr "Warteschlange"
 
-#: src/gtk/window.ui:84
+#: src/gtk/window.ui:75
 msgid "Main Menu"
 msgstr "Hauptmenü"
 
+#: src/gtk/window.ui:103 src/gtk/window.ui:112
+msgid "Welcome"
+msgstr "Willkommen"
+
+#: src/gtk/window.ui:113 src/window.py:287
+msgid "Retrieving collection..."
+msgstr "Sammlung wird geladen..."
+
 #. Translators: Button
-#: src/gtk/window.ui:119
+#: src/gtk/window.ui:122
 msgid "Login"
 msgstr "Anmelden"
 
 #. Translators: Button
-#: src/gtk/window.ui:135
+#: src/gtk/window.ui:138
 msgid "Retry"
 msgstr "Erneut versuchen"
 
 #. Translators: Button tooltip
-#: src/gtk/window.ui:137
+#: src/gtk/window.ui:140
 msgid "Retry refreshing library"
 msgstr "Bibliothek erneut laden"
 
-#: src/gtk/window.ui:203
+#: src/gtk/window.ui:206
 msgid "Album Details"
 msgstr "Albumdetails"
 
-#: src/gtk/window.ui:238
+#: src/gtk/window.ui:241
 msgid "Artists"
 msgstr "Künstler"
 
-#: src/gtk/window.ui:287
+#: src/gtk/window.ui:280
 msgid "Content"
 msgstr "Inhalt"
 
-#: src/gtk/window.ui:340
+#: src/gtk/window.ui:326
 msgid "Playlist Details"
 msgstr "Playlist-Details"
 
-#: src/gtk/window.ui:399
+# DE (2026-11-12): German labels for the new library refresh control.
+# DE (2026-11-14): Reuse the label for the main menu and translate the shortcut.
+#: src/gtk/window.ui:379
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+#: src/gtk/window.ui:383
+msgid "_Upload"
+msgstr "_Hochladen"
+
+#: src/gtk/window.ui:387
 msgid "_Preferences"
 msgstr "_Einstellungen"
 
-#: src/gtk/window.ui:403
+#: src/gtk/window.ui:391
 msgid "_Keyboard Shortcuts"
 msgstr "_Tastenkürzel"
 
-#: src/gtk/window.ui:407
+#: src/gtk/window.ui:395
 msgid "_About ActionGrooveNC"
 msgstr "_Über ActionGrooveNC"
 
-#: src/gtk/window.ui:413
+#: src/gtk/window.ui:401
 msgid "_ActionGrooveNC Wrapped"
 msgstr "_ActionGrooveNC Wrapped"
 
-#: src/gtk/window.ui:425
+#: src/gtk/window.ui:413
 msgid "_View details"
 msgstr "_Details anzeigen"
 
+#. Send errors back for toast on welcome page
+#: src/client.py:208
+#, python-format
+msgid "Error: got HTTP status code %(status)s when checking collection"
+msgstr "Fehler: HTTP-Status %(status)s beim Abrufen der Sammlung"
+
+#: src/client.py:221
+#, python-format
+msgid "Error: Got exception %(error)s"
+msgstr "Fehler: Ausnahme %(error)s"
+
+#: src/client.py:412
+#, python-format
+msgid "Got status %(status)s from downloading song"
+msgstr "HTTP-Status %(status)s beim Herunterladen des Titels"
+
+#: src/client.py:502
+msgid "_Add to playlist"
+msgstr "Zur _Playlist hinzufügen"
+
+#: src/main.py:83
+msgid "Please login to a Nextcloud instance to use ActionGrooveNC."
+msgstr ""
+"Bitte melde dich bei einer Nextcloud-Instanz an, um ActionGrooveNC zu "
+"verwenden."
+
+#: src/main.py:97
+msgid "Linux client for Nextcloud Music"
+msgstr "Linux-Client für Nextcloud Music"
+
+#: src/main.py:100
+msgid ""
+"This application comes with absolutely no warranty. See the GNU General "
+"Public Licence, version 3 or later for details."
+msgstr ""
+"Für diese Anwendung besteht keinerlei Garantie. Weitere Informationen "
+"findest du in der GNU General Public License, Version 3 oder neuer."
+
 #. Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
-#: src/main.py:118
+#: src/main.py:103
 msgid "translator-credits"
 msgstr "Actionschnitzel"
+
+#: src/main.py:115 src/widgets/upload_dialog.py:12
+msgid "Upload to Nextcloud"
+msgstr "In Nextcloud hochladen"
+
+#: src/main.py:115
+msgid "Please log in before uploading."
+msgstr "Bitte melde dich vor dem Hochladen an."
 
 #: src/mpris.py:160
 msgid "Not playing yet"
 msgstr "Noch keine Wiedergabe"
+
+#: src/settings.py:51
+#, python-format
+msgid "Logged into %(server)s"
+msgstr "Angemeldet bei %(server)s"
+
+#: src/settings.py:57
+#, python-format
+msgid "Unable to login to %(server)s"
+msgstr "Anmeldung bei %(server)s nicht möglich"
+
+#: src/settings.py:59
+msgid "Not logged into any server"
+msgstr "Bei keinem Server angemeldet"
+
+#: src/settings.py:75
+msgid "Disconnect Nextcloud?"
+msgstr "Nextcloud-Verbindung trennen?"
+
+#: src/settings.py:76
+msgid "Do you want to sign out?"
+msgstr "Möchtest du dich abmelden?"
+
+#: src/settings.py:78 src/widgets/playlist_header.py:167
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/settings.py:79
+msgid "Disconnect"
+msgstr "Verbindung trennen"
+
+#: src/upload.py:27
+#, python-format
+msgid "Failed: %(path)s — %(reason)s"
+msgstr "Fehlgeschlagen: %(path)s — %(reason)s"
+
+#: src/upload.py:52
+msgid "Invalid Nextcloud server address"
+msgstr "Ungültige Nextcloud-Serveradresse"
+
+#: src/upload.py:59 src/upload.py:68
+msgid "Invalid redirect from Nextcloud"
+msgstr "Ungültige Weiterleitung von Nextcloud"
+
+#: src/upload.py:64
+msgid "Nextcloud returned a redirect without a destination"
+msgstr "Nextcloud hat eine Weiterleitung ohne Ziel zurückgegeben"
+
+#: src/upload.py:70
+msgid "Nextcloud redirected the settings request to a different server"
+msgstr ""
+"Nextcloud hat die Einstellungsanfrage an einen anderen Server weitergeleitet"
+
+#: src/upload.py:73
+msgid "Too many redirects while retrieving Nextcloud Music settings"
+msgstr ""
+"Zu viele Weiterleitungen beim Abrufen der Nextcloud-Music-Einstellungen"
+
+#: src/upload.py:81 src/upload.py:105 src/upload.py:119 src/upload.py:132
+#: src/upload.py:142 src/upload.py:169
+#, python-format
+msgid "HTTP status %(status)s"
+msgstr "HTTP-Status %(status)s"
+
+#: src/upload.py:85 src/upload.py:87 src/upload.py:91 src/upload.py:94
+#: src/upload.py:109 src/upload.py:111
+msgid "Invalid music scan response"
+msgstr "Ungültige Antwort beim Musikscan"
+
+#: src/upload.py:96
+#, python-format
+msgid "Scanning new and modified music files: %(count)d"
+msgstr "Neue und geänderte Musikdateien werden gescannt: %(count)d"
+
+#: src/upload.py:113
+msgid "Not all music files could be scanned"
+msgstr "Nicht alle Musikdateien konnten gescannt werden"
+
+#: src/upload.py:114
+msgid "Music scan completed. Refresh the library to see the results."
+msgstr ""
+"Musikscan abgeschlossen. Aktualisiere die Sammlung, um das Ergebnis zu sehen."
+
+#: src/upload.py:123
+msgid "Invalid WebDAV response"
+msgstr "Ungültige WebDAV-Antwort"
+
+#: src/upload.py:125
+msgid "The destination is not a folder"
+msgstr "Das Ziel ist kein Ordner"
+
+#: src/upload.py:140
+msgid "File already exists"
+msgstr "Datei ist bereits vorhanden"
+
+#: src/upload.py:144
+#, python-format
+msgid "Uploaded: %(path)s"
+msgstr "Hochgeladen: %(path)s"
+
+#: src/upload.py:151
+msgid "Symbolic links are not uploaded"
+msgstr "Symbolische Links werden nicht hochgeladen"
+
+#: src/upload.py:156
+msgid "Not a regular file or directory"
+msgstr "Keine reguläre Datei und kein Ordner"
+
+#: src/upload.py:173
+msgid "Invalid Nextcloud Music settings response"
+msgstr "Ungültige Antwort auf die Nextcloud-Music-Einstellungen"
+
+#: src/upload.py:176 src/upload.py:179
+msgid "Invalid music folder in Nextcloud Music settings"
+msgstr "Ungültiger Musikordner in den Nextcloud-Music-Einstellungen"
+
+#: src/upload.py:181
+#, python-format
+msgid "Upload destination: %(path)s"
+msgstr "Upload-Ziel: %(path)s"
+
+#: src/upload.py:183
+msgid "Nextcloud Music folder"
+msgstr "Nextcloud-Music-Ordner"
+
+#: src/upload.py:189
+msgid "Cannot upload this path"
+msgstr "Dieser Pfad kann nicht hochgeladen werden"
+
+#: src/upload.py:198
+#, python-format
+msgid "Music scan failed: %(reason)s"
+msgstr "Musikscan fehlgeschlagen: %(reason)s"
+
+#: src/window.py:307
+msgid "Error retrieving library, check connection and retry, or login again."
+msgstr ""
+"Fehler beim Laden der Sammlung. Prüfe die Verbindung und versuche es erneut "
+"oder melde dich erneut an."
+
+#: src/widgets/album_header.py:84
+#, python-format
+msgid "Released %(year)s"
+msgstr "Veröffentlicht %(year)s"
 
 #. Translators: Title
 #: src/widgets/nextcloud_login_dialog.py:151
@@ -395,6 +721,142 @@ msgstr "Schließe die Authentifizierung in deinem Browser ab"
 #: src/widgets/nextcloud_login_dialog.py:188
 msgid "Failed to start login. Wrong address?"
 msgstr "Anmeldung konnte nicht gestartet werden. Falsche Adresse?"
+
+#: src/widgets/play_stats_dialog.py:98
+msgid "Lifetime"
+msgstr "Gesamt"
+
+#: src/widgets/play_stats_dialog.py:163
+msgid "Top 5 Songs:"
+msgstr "Top 5 Titel:"
+
+#: src/widgets/play_stats_dialog.py:176
+#, python-format
+msgid "%(position)d:  %(title)s - %(artist)s (%(count)d play)\n"
+msgid_plural "%(position)d:  %(title)s - %(artist)s (%(count)d plays)\n"
+msgstr[0] "%(position)d:  %(title)s - %(artist)s (%(count)d Wiedergabe)\n"
+msgstr[1] "%(position)d:  %(title)s - %(artist)s (%(count)d Wiedergaben)\n"
+
+#: src/widgets/play_stats_dialog.py:189
+msgid "Top 5 Artists:"
+msgstr "Top 5 Künstler:"
+
+#: src/widgets/play_stats_dialog.py:199
+#, python-format
+msgid "%(position)d:  %(name)s (%(count)d play)\n"
+msgid_plural "%(position)d:  %(name)s (%(count)d plays)\n"
+msgstr[0] "%(position)d:  %(name)s (%(count)d Wiedergabe)\n"
+msgstr[1] "%(position)d:  %(name)s (%(count)d Wiedergaben)\n"
+
+#: src/widgets/play_stats_dialog.py:212
+msgid "Top 5 Albums:"
+msgstr "Top 5 Alben:"
+
+#: src/widgets/play_stats_dialog.py:222
+#, python-format
+msgid "%(position)d: %(name)s (%(count)d play)\n"
+msgid_plural "%(position)d: %(name)s (%(count)d plays)\n"
+msgstr[0] "%(position)d: %(name)s (%(count)d Wiedergabe)\n"
+msgstr[1] "%(position)d: %(name)s (%(count)d Wiedergaben)\n"
+
+#: src/widgets/play_stats_dialog.py:265
+msgid "My total Nextcloud music stats:"
+msgstr "Meine gesamte Nextcloud-Musikstatistik:"
+
+#: src/widgets/play_stats_dialog.py:267 src/widgets/play_stats_dialog.py:268
+#: src/widgets/play_stats_dialog.py:269
+#, python-format
+msgid "%(title)s (Lifetime)"
+msgstr "%(title)s (Gesamt)"
+
+#: src/widgets/play_stats_dialog.py:284
+#, python-format
+msgid "My Nextcloud music stats from %(start)s to %(end)s:"
+msgstr "Meine Nextcloud-Musikstatistik vom %(start)s bis %(end)s:"
+
+#: src/widgets/play_stats_dialog.py:288 src/widgets/play_stats_dialog.py:289
+#: src/widgets/play_stats_dialog.py:290
+#, python-format
+msgid "%(title)s (since %(date)s)"
+msgstr "%(title)s (seit %(date)s)"
+
+#: src/widgets/playlist_header.py:166
+#, python-format
+msgid "Are you sure you want to delete playlist: '%(name)s'"
+msgstr "Möchtest du die Playlist „%(name)s“ wirklich löschen?"
+
+#: src/widgets/playlist_header.py:167
+msgid "Delete"
+msgstr "Löschen"
+
+#: src/widgets/upload_dialog.py:26
+msgid ""
+"Files are uploaded to the folder configured in Nextcloud Music. Existing "
+"files are not overwritten."
+msgstr ""
+"Dateien werden in den in Nextcloud Music eingestellten Ordner hochgeladen. "
+"Vorhandene Dateien werden nicht überschrieben."
+
+#: src/widgets/upload_dialog.py:32 src/widgets/upload_dialog.py:61
+msgid "Choose files"
+msgstr "Dateien auswählen"
+
+#: src/widgets/upload_dialog.py:33 src/widgets/upload_dialog.py:65
+msgid "Choose folder"
+msgstr "Ordner auswählen"
+
+#: src/widgets/upload_dialog.py:40 src/widgets/upload_dialog.py:92
+#: src/widgets/upload_dialog.py:100
+msgid "No files selected"
+msgstr "Keine Dateien ausgewählt"
+
+#: src/widgets/upload_dialog.py:45
+msgid "Start upload"
+msgstr "Upload starten"
+
+#: src/widgets/upload_dialog.py:86
+#, python-format
+msgid "File selection failed: %(reason)s"
+msgstr "Dateiauswahl fehlgeschlagen: %(reason)s"
+
+#: src/widgets/upload_dialog.py:94
+msgid "Only local files and folders can be uploaded."
+msgstr "Nur lokale Dateien und Ordner können hochgeladen werden."
+
+#: src/widgets/upload_dialog.py:98
+#, python-format
+msgid "%(count)d files selected"
+msgstr "%(count)d Dateien ausgewählt"
+
+#: src/widgets/upload_dialog.py:110
+msgid "Unable to retrieve login credentials."
+msgstr "Anmeldedaten konnten nicht abgerufen werden."
+
+#: src/widgets/upload_dialog.py:117
+msgid "Finding the Nextcloud Music folder and uploading…"
+msgstr "Nextcloud-Music-Ordner wird ermittelt und Dateien werden hochgeladen…"
+
+#: src/widgets/upload_dialog.py:139
+#, python-format
+msgid ""
+"Upload finished: %(uploaded)d uploaded, %(failed)d failed or skipped. Music "
+"scan failed; see details."
+msgstr ""
+"Upload abgeschlossen: %(uploaded)d hochgeladen, %(failed)d fehlgeschlagen "
+"oder übersprungen. Musikscan fehlgeschlagen; siehe Details."
+
+#: src/widgets/upload_dialog.py:141
+#, python-format
+msgid "Upload finished: %(uploaded)d uploaded, %(failed)d failed or skipped."
+msgstr ""
+"Upload abgeschlossen: %(uploaded)d hochgeladen, %(failed)d fehlgeschlagen "
+"oder übersprungen."
+
+#: src/widgets/upload_dialog.py:147
+msgid "Upload failed unexpectedly. See the application log for details."
+msgstr ""
+"Der Upload ist unerwartet fehlgeschlagen. Details stehen im "
+"Anwendungsprotokoll."
 
 #~ msgid "Search artists"
 #~ msgstr "Künstler durchsuchen"
