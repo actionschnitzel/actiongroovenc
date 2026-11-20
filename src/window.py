@@ -21,6 +21,7 @@ import logging
 import random
 import os.path
 from html import escape
+from gettext import gettext as _
 
 from gi.repository import Adw
 from gi.repository import Gtk
@@ -129,7 +130,6 @@ class NextcloudmusicWindow(Adw.ApplicationWindow):
         self.refresh_action.set_enabled(False)
         self.refresh_action.connect("activate", self._do_refresh)
         self.add_action(self.refresh_action)
-        self.application.set_accels_for_action("win.refresh", ["<Primary>F5"])
         self._settings = Gio.Settings.new("io.github.actionschnitzel.actiongroovenc")
         self._queue = Gio.ListStore()
         self._songs = Gtk.ListStore(str, str, str, QueueItem)
@@ -284,7 +284,7 @@ class NextcloudmusicWindow(Adw.ApplicationWindow):
         self.welcome_retry_button.set_visible(False)
         self.welcome_login_button.set_visible(False)
         self.welcome_spinner.set_visible(True)
-        self.welcome_status_page.set_description("Retrieving collection...")
+        self.welcome_status_page.set_description(_("Retrieving collection..."))
 
     def update_collection(self, source_object, result, user_data):
         """Updates the collection view.
@@ -292,7 +292,7 @@ class NextcloudmusicWindow(Adw.ApplicationWindow):
         collection = result.propagate_value().value
         self.fake_stack.props.visible = False
 
-        if isinstance(collection, str) and collection.startswith("Error"):
+        if isinstance(collection, str):
             if self.__logged_in:
                 # DE (2026-11-12): Report refresh failures without discarding the current library.
                 self.status_toast.add_toast(Adw.Toast(title=escape(collection)))
@@ -304,7 +304,7 @@ class NextcloudmusicWindow(Adw.ApplicationWindow):
             self.welcome_retry_button.set_visible(True)
             self.welcome_login_button.set_visible(True)
             self.welcome_spinner.set_visible(False)
-            self.welcome_status_page.set_description("Error retrieving library, check connection and retry, or login again.")
+            self.welcome_status_page.set_description(_("Error retrieving library, check connection and retry, or login again."))
 
             return
         # DE (2026-11-12): Preserve the active tab and rebuild artists without duplicates.

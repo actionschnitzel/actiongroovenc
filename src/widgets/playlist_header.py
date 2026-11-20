@@ -22,6 +22,7 @@ from typing import Optional
 
 import logging
 import random
+from gettext import gettext as _
 
 from gi.repository import GObject, Gtk, Gio
 from .playlist import PlaylistItem
@@ -162,8 +163,8 @@ class PlaylistHeader(Gtk.Box):
         self.playlist_to_delete = self.playlist.playlist_id
 
         dialog = Gtk.AlertDialog()
-        dialog.set_detail(f"Are you sure you want to delete playlist: '{playlist_name}'")
-        dialog.set_buttons(["Cancel", "Delete"])
+        dialog.set_detail(_("Are you sure you want to delete playlist: '%(name)s'") % {"name": playlist_name})
+        dialog.set_buttons([_("Cancel"), _("Delete")])
         dialog.set_cancel_button(0)
         dialog.set_default_button(0)
         dialog.choose(self.window, None, self.confirm_result, None)

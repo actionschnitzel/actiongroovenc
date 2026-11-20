@@ -26,6 +26,7 @@ import requests
 import json
 import os
 import threading
+from gettext import gettext as _
 from urllib.parse import urlparse
 from requests.auth import HTTPBasicAuth
 from gi.repository import GObject, Gio, GLib, Gtk, Gdk, Secret
@@ -141,6 +142,9 @@ class NextcloudMusicClient(GObject.Object):
     def __base_url(self):
         return f"{self.__server()}/index.php/apps/music/api"
 
+    def upload_credentials(self):
+        return self.__server(), self.__settings.get_string("user"), self.__auth()
+
     def _collection(self):
         return requests.get(f"{self.__base_url()}/collection", headers=self.cookie_headers, auth=self.__auth(), timeout=5)
 
@@ -201,7 +205,7 @@ class NextcloudMusicClient(GObject.Object):
             if response.status_code != 200:
                 logging.error(f"return code was {response.status_code}")
                 # Send errors back for toast on welcome page
-                return f"Error: got HTTP status code {response.status_code} when checking collection"
+                return _("Error: got HTTP status code %(status)s when checking collection") % {"status": response.status_code}
             self.collection = json.loads(response.text)
             # DE (2026-11-12): Replace cached data only after success and recreate the reusable sort store.
             self.albums.remove_all()
@@ -214,7 +218,7 @@ class NextcloudMusicClient(GObject.Object):
         except requests.exceptions.RequestException as e:
             # Send errors back for toast on welcome page
             logging.error(f"Exception in updating collection {e}")
-            return f"Error: Got exception {e}"
+            return _("Error: Got exception %(error)s") % {"error": e}
 
     def update_albums(self):
         for artist in self.collection:
@@ -405,7 +409,7 @@ class NextcloudMusicClient(GObject.Object):
             f"{self.__base_url()}/files/{song_id}/download", auth=self.__auth(), timeout=15, headers=self.cookie_headers
         )
         if not response.ok:
-            raise Exception(f"Got status {response.status_code} from downloading song")
+            raise Exception(_("Got status %(status)s from downloading song") % {"status": response.status_code})
 
         with open(song_location, "wb") as song_file:
             song_file.write(self.strip_id3v2(response.content))
@@ -495,7 +499,7 @@ class NextcloudMusicClient(GObject.Object):
             item = Gio.MenuItem.new(playlist.playlist_name, None)
             item.set_action_and_target_value(action_name, GLib.Variant.new_string(str(playlist.playlist_id)))
             submenu.append_item(item)
-        menu.append_submenu("_Add to playlist", submenu)
+        menu.append_submenu(_("_Add to playlist"), submenu)
 
     def add_track_to_playlist_async(self, playlist_id, track_id):
         threading.Thread(target=self.add_track_to_playlist_sync, args=(playlist_id, track_id), daemon=True).start()

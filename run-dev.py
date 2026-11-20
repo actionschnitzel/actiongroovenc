@@ -3,6 +3,7 @@
 
 import gettext
 import glob
+import locale
 import os
 import shutil
 import signal
@@ -12,6 +13,25 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "src")
 WORK = os.path.join(os.path.expanduser("~/.cache"), "actiongroovenc-dev")
+
+
+def setup_translations():
+    localedir = os.path.join(WORK, "locale")
+    with open(os.path.join(HERE, "po", "LINGUAS"), encoding="utf-8") as linguas:
+        languages = [language for line in linguas for language in line.partition("#")[0].split()]
+    for language in languages:
+        catalog_dir = os.path.join(localedir, language, "LC_MESSAGES")
+        os.makedirs(catalog_dir, exist_ok=True)
+        subprocess.run(
+            ["msgfmt", "--check", "-o", os.path.join(catalog_dir, "actiongroovenc.mo"),
+             os.path.join(HERE, "po", f"{language}.po")],
+            check=True,
+        )
+    locale.bindtextdomain("actiongroovenc", localedir)
+    locale.textdomain("actiongroovenc")
+    gettext.bindtextdomain("actiongroovenc", localedir)
+    gettext.textdomain("actiongroovenc")
+    gettext.install("actiongroovenc", localedir)
 
 
 def main():
@@ -42,7 +62,7 @@ def main():
     sys.path.insert(0, os.path.dirname(pkg_dir))
 
     signal.signal(signal.SIGINT, signal.SIG_DFL)
-    gettext.install("actiongroovenc")
+    setup_translations()
 
     from gi.repository import Gio
     Gio.Resource.load(gresource)._register()

@@ -17,8 +17,32 @@ project and therefore its functionality is quite limited: check the current capa
  - Drag&Drop to Queue 
  - Caches album art, and can optionally cache songs.
  - Can save current play queue as a playlist.
+ - Uploads selected files or folders to the configured Nextcloud Music folder without overwriting existing files.
+ - Scans new and modified music files after an upload.
+ - Refreshes the collection from the main menu or with Ctrl+R.
  - Adaptive and works at mobile resolution.
  - Does *not* support other media like podcasts.
+
+## Uploading music
+
+1. Log in to Nextcloud and select **Upload** from the main menu or press Ctrl+U.
+2. Choose individual local files or a local folder, then select **Start upload**.
+3. Check the upload and scan results in the dialog. After the scan, select
+   **Refresh** from the main menu or press Ctrl+R to update the collection.
+
+Uploads preserve the selected folder and its subfolders, including non-audio
+files such as cover art. Symbolic links are not uploaded. Before every upload,
+the app retrieves the configured folder from Nextcloud Music and displays the
+destination. If the configured path is `/`, files are uploaded to the root of
+the user's Nextcloud files. If the settings or folder cannot be accessed, the
+upload is stopped. Existing files are skipped, not overwritten.
+
+After at least one successful upload, the app checks the entire Nextcloud Music
+collection for new and modified music files and scans those that need it.
+Scan failures are reported separately from upload failures.
+
+When running from the source tree with `run-dev.py`, `msgfmt` from the gettext
+package is required to compile the translations.
 
 ## Contributing and Issues
 

@@ -90,7 +90,7 @@
 
         <child>
           <object class="GtkButton" id="previous">
-            <property name="label">prev</property>
+            <property name="label" translatable="yes">prev</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="icon-name">media-skip-backward-symbolic</property>
@@ -105,7 +105,7 @@
         </child>
         <child>
           <object class="GtkButton" id="playpause">
-            <property name="label">play/pause</property>
+            <property name="label" translatable="yes">play/pause</property>
             <property name="icon-name">media-playback-start-symbolic</property>
             <property name="width-request">58</property>
             <property name="height-request">58</property>
@@ -118,7 +118,7 @@
         </child>
         <child>
           <object class="GtkButton" id="next">
-            <property name="label">next</property>
+            <property name="label" translatable="yes">next</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="icon-name">media-skip-forward-symbolic</property>
@@ -151,7 +151,7 @@
         </child>
         <child>
           <object class="GtkButton" id="volumebutton">
-            <property name="label">vol</property>
+            <property name="label" translatable="yes">vol</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="icon-name">audio-volume-high-symbolic</property>

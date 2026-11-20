@@ -23,6 +23,7 @@ import sys
 import gi
 from .client import NextcloudMusicClient
 from .play_stats_dialog import PlayStatsDialog
+from .upload_dialog import UploadDialog
 
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
@@ -48,6 +49,9 @@ class NextcloudmusicApplication(Adw.Application):
         self.create_action("about", self.on_about_action)
         self.create_action("preferences", self.on_preferences_action, ["<primary>p"])
         self.create_action("wrapped", self.on_wrapped_action)
+        self.create_action("upload", self.on_upload_action, ["<primary>u"])
+        # DE (2026-11-15): Register before window creation so the shortcuts window resolves it.
+        self.set_accels_for_action("win.refresh", ["<Primary>r"])
         self.cookie = 0
 
 
@@ -76,7 +80,7 @@ class NextcloudmusicApplication(Adw.Application):
 
         # If we've never logged in...
         if not self._client.initialized():
-            self._window.welcome_description("Please login to a Nextcloud instance to use ActionGrooveNC.")
+            self._window.welcome_description(_("Please login to a Nextcloud instance to use ActionGrooveNC."))
             return
 
         callback = self._window.update_collection
@@ -90,12 +94,10 @@ class NextcloudmusicApplication(Adw.Application):
         about = Adw.AboutDialog(
             application_name="ActionGrooveNC",
             application_icon="io.github.actionschnitzel.actiongroovenc",
-            comments="Linux client for Nextcloud Music",
+            comments=_("Linux client for Nextcloud Music"),
             developer_name="Dean Birch",
             version="0.6",
-            copyright="© Dean Birch\
-            \
-\n\nThis application comes with absolutely no warranty. See the GNU General Public Licence, version 3 or later for details.",
+            copyright="© Dean Birch\n\n" + _("This application comes with absolutely no warranty. See the GNU General Public Licence, version 3 or later for details."),
         )
         # Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
         about.set_translator_credits(_("translator-credits"))
@@ -107,6 +109,14 @@ class NextcloudmusicApplication(Adw.Application):
         """Callback for the app.preferences action."""
         settings = NextcloudmusicSettingsWindow()
         settings.present(self._window)
+
+    def on_upload_action(self, widget, _parameter):
+        if not self._window.is_logged_in():
+            dialog = Adw.AlertDialog.new(_("Upload to Nextcloud"), _("Please log in before uploading."))
+            dialog.add_response("close", _("Close"))
+            dialog.present(self._window)
+            return
+        UploadDialog(self._client).present(self._window)
 
     def register_window_actions(self, win):
         """Expose window and sub-widget callbacks as app actions for menus and shortcuts."""

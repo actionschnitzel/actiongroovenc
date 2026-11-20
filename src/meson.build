@@ -39,6 +39,7 @@ actiongroovenc_sources = [
   'models/queueitem.py',
   'mpris.py',
   'settings.py',
+  'upload.py',
   'widgets/album_header.py',
   'widgets/nextcloud_login_dialog.py',
   'widgets/play_stats_dialog.py',
@@ -47,6 +48,7 @@ actiongroovenc_sources = [
   'widgets/queue_page.py',
   'widgets/song_row.py',
   'widgets/stats_row.py',
+  'widgets/upload_dialog.py',
   'window.py'
 ]
 

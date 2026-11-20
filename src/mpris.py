@@ -160,9 +160,9 @@ class MPRIS(Server):
             "s", _("Not playing yet")
         )
         self.__metadata["xesam:album"] = GLib.Variant(
-            "s", _("")
+            "s", ""
         )
-        self.__metadata["xesam:artist"] = GLib.Variant("as", [_("")])
+        self.__metadata["xesam:artist"] = GLib.Variant("as", [""])
 
         self.__bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
         Gio.bus_own_name_on_connection(

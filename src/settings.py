@@ -21,6 +21,7 @@ from gi.repository import Adw
 from gi.repository import GLib
 from gi.repository import Gtk
 
+from gettext import gettext as _
 import logging
 import os
 
@@ -47,15 +48,15 @@ class NextcloudmusicSettingsWindow(Adw.PreferencesDialog):
         if window.is_logged_in():
             self._login_row.props.visible = False
             self._logout_row.props.visible = True
-            self._server_group.props.description = f"Logged into {window.props.settings.get_string("server")}"
+            self._server_group.props.description = _("Logged into %(server)s") % {"server": window.props.settings.get_string("server")}
         else:
             self._login_row.props.visible = True
             self._logout_row.props.visible = False
             server = window.props.settings.get_string("server")
             if server:
-                self._server_group.props.description = f"Unable to login to {server}"
+                self._server_group.props.description = _("Unable to login to %(server)s") % {"server": server}
             else:
-                self._server_group.props.description = f"Not logged into any server"
+                self._server_group.props.description = _("Not logged into any server")
 
         # Set previous values and connect to update them if needed
         self._cache_row.connect("notify::active", self._update_use_cache)
@@ -70,12 +71,12 @@ class NextcloudmusicSettingsWindow(Adw.PreferencesDialog):
         self.window._do_login(self)
         self.close()
 
-    def _logout_clicked(self, _):
-        title = "Disconnect Nextcloud?"
-        body = "Do you want to sign out?"
+    def _logout_clicked(self, _button):
+        title = _("Disconnect Nextcloud?")
+        body = _("Do you want to sign out?")
         dialog = Adw.AlertDialog.new(title, body)
-        dialog.add_response("close", "Cancel")
-        dialog.add_response("disconnect", "Disconnect")
+        dialog.add_response("close", _("Cancel"))
+        dialog.add_response("disconnect", _("Disconnect"))
         dialog.set_response_appearance("disconnect", Adw.ResponseAppearance.DESTRUCTIVE)
 
         def handle_response(_o: Adw.AlertDialog, response: str) -> None:
