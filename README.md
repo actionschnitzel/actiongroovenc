@@ -1,10 +1,14 @@
 #  ActionGrooveNC
 
+<p align="center">
+  <img src="data/icons/hicolor/scalable/apps/actiongroove_NC.png"
+       alt="Screenshot of ActionGrooveNC"
+       title="Screenshot of ActionGrooveNC"
+       width="30%">
+</p>
+
 This project is a fork of [NextGroove](https://gitlab.gnome.org/dean36963/nextgroove). Since the original project is no longer maintained, ActionGrooveNC aims to continue its development, improve the existing codebase, and introduce further enhancements.
 
-
-GNOME based client for Nextcloud Music created as a holiday programming
-project and therefore its functionality is quite limited: check the current capabilities section.
 
 ![a](screenshots/screenshot1.png "Screenshot of ActionGrooveNC")
 
